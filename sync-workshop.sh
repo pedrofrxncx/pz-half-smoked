@@ -5,7 +5,7 @@ set -e
 SRC="$HOME/Zomboid/mods/HalfSmoked"
 DST="$HOME/Zomboid/Workshop/HalfSmoked/Contents/mods/HalfSmoked"
 mkdir -p "$DST"
-rsync -a --delete \
+rsync -a --delete --delete-excluded \
   --exclude='.git' --exclude='.gitignore' --exclude='.DS_Store' \
   --exclude='README.md' --exclude='sync-workshop.sh' \
   "$SRC/" "$DST/"
