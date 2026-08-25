@@ -9,6 +9,9 @@ HalfSmoked.puffs = {
     ["Base.CigaretteRolled"]  = 3,
 }
 
+-- Stress removed by smoking one whole item (stress is a 0..1 stat).
+HalfSmoked.stressRelief = 0.10
+
 function HalfSmoked.total(item)
     return HalfSmoked.puffs[item:getFullType()]
 end

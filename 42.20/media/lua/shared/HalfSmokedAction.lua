@@ -27,13 +27,16 @@ function HalfSmokedAction:perform()
     local frac = self.puffs / HalfSmoked.total(item)
 
     -- Apply this fraction of the item's mood effects.
-    -- ponytail: stress is 0..1, boredom/unhappy are 0..100 -- these scales need
-    -- an in-game sanity check; tune the divisors here if a drag feels off.
+    -- B42 keeps boredom/unhappiness on Stats via the CharacterStat enum --
+    -- BodyDamage has no setters for them. Scale is 0..100, matching the script
+    -- values (Cigar is UnhappyChange = -40, BoredomChange = -20).
     local stats = self.character:getStats()
-    local body  = self.character:getBodyDamage()
-    stats:setStress(PZMath.clamp_01(stats:getStress() + (item:getStressChange() * frac) / 100))
-    body:setBoredomLevel(PZMath.clamp(body:getBoredomLevel() + item:getBoredomChange() * frac, 0, 100))
-    body:setUnhappynessLevel(PZMath.clamp(body:getUnhappynessLevel() + item:getUnhappynessChange() * frac, 0, 100))
+    stats:add(CharacterStat.BOREDOM, item:getBoredomChange() * frac)
+    stats:add(CharacterStat.UNHAPPINESS, item:getUnhappyChange() * frac)
+
+    -- ponytail: stress is 0..1 and there is no confirmed item getter for it, so
+    -- this is a flat constant per whole item. Tune if a drag feels weak/strong.
+    stats:setStress(PZMath.clamp_01(stats:getStress() - HalfSmoked.stressRelief * frac))
 
     item:getModData().puffsLeft = HalfSmoked.left(item) - self.puffs
     -- ponytail: rename in place, cheapest way to see remaining drags at a glance
