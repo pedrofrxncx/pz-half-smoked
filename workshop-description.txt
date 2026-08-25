@@ -1,0 +1,43 @@
+[h1]Half Smoked[/h1]
+
+You find one cigarette in a looted glovebox. Vanilla makes you smoke the entire thing in one go, standing in the road, while the horde shuffles two streets over.
+
+This mod lets you take a drag and put it away.
+
+[hr][/hr]
+[h2]What it does[/h2]
+
+[list]
+[*] [b]Take a drag[/b] — a couple of puffs, then pocket it
+[*] [b]Smoke half[/b] — for when you've earned it
+[*] [b]Finish it[/b] — the vanilla experience, still one click
+[/list]
+
+A partly smoked cigar keeps its remaining drags. Stash it in your bag, sleep, drive across the county, come back a week later and relight it. It'll be waiting, and it'll tell you what's left right in its name — [i]Cigar (3 left)[/i].
+
+[h2]Share it[/h2]
+
+Hand a half-smoked cigarette to another player and its state goes with it. Split a cigar three ways on a roof at dusk. Leave two drags in the pack for whoever finds your body.
+
+No trading UI, no menus. Just give someone the item.
+
+[h2]Details[/h2]
+
+[list]
+[*] Works on cigars, cigarillos, and both loose and rolled cigarettes
+[*] Mood effects scale to how much you actually smoked — two puffs give you two puffs' worth
+[*] Nicotine withdrawal is still handled by the base game, exactly once per item
+[*] You need a light. Matches, a lighter, a lit candle, or the car's cigarette lighter, same as vanilla
+[*] Drags per item are a single table in [i]HalfSmoked.lua[/i] if you want to tune it
+[/list]
+
+[h2]Compatibility[/h2]
+
+Build 42. Singleplayer and multiplayer. Safe to add to an existing save, and safe to remove — cigars you've already started just go back to being whole.
+
+Touches no vanilla files and adds no new items, so it should sit quietly next to anything else you're running.
+
+[hr][/hr]
+
+Source: [url=https://github.com/pedrofrxncx/pz-half-smoked]github.com/pedrofrxncx/pz-half-smoked[/url]
+Issues and pull requests welcome.
