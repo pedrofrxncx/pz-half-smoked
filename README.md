@@ -1,5 +1,7 @@
 # Half Smoked
 
+[Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3790084068)
+
 A Project Zomboid (B42) mod. Smoke part of a cigar or cigarette, pocket it,
 relight it later, or pass it to a friend.
 
