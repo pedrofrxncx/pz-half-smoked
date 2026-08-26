@@ -43,8 +43,9 @@ local function onFillInventoryObjectContextMenu(player, context, items)
     context:addSubMenu(sub, menu)
 
     menu:addOption(getText("ContextMenu_HalfSmoked_Drag"), playerObj, drag, item, 1)
-    if left >= 2 then
-        menu:addOption(getText("ContextMenu_HalfSmoked_Half"), playerObj, drag, item, math.floor(left / 2))
+    local half = HalfSmoked.half(left)
+    if half > 1 and half < left then
+        menu:addOption(getText("ContextMenu_HalfSmoked_Half"), playerObj, drag, item, half)
     end
     menu:addOption(getText("ContextMenu_HalfSmoked_Finish"), playerObj, drag, item, left)
 end

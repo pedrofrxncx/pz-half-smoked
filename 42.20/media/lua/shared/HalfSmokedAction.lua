@@ -34,9 +34,9 @@ function HalfSmokedAction:perform()
     stats:add(CharacterStat.BOREDOM, item:getBoredomChange() * frac)
     stats:add(CharacterStat.UNHAPPINESS, item:getUnhappyChange() * frac)
 
-    -- ponytail: stress is 0..1 and there is no confirmed item getter for it, so
-    -- this is a flat constant per whole item. Tune if a drag feels weak/strong.
-    stats:setStress(PZMath.clamp_01(stats:getStress() - HalfSmoked.stressRelief * frac))
+    -- Stress lives on the same enum in B42; Stats has no get/setStress.
+    -- ponytail: no item getter for StressChange, so this is a flat constant.
+    stats:add(CharacterStat.STRESS, -HalfSmoked.stressRelief * frac)
 
     item:getModData().puffsLeft = HalfSmoked.left(item) - self.puffs
     -- ponytail: rename in place, cheapest way to see remaining drags at a glance

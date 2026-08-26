@@ -5,12 +5,17 @@ HalfSmoked = HalfSmoked or {}
 HalfSmoked.puffs = {
     ["Base.Cigar"]            = 6,
     ["Base.Cigarillo"]        = 4,
-    ["Base.CigaretteSingle"]  = 3,
-    ["Base.CigaretteRolled"]  = 3,
+    ["Base.CigaretteSingle"]  = 4,
+    ["Base.CigaretteRolled"]  = 4,
 }
 
 -- Stress removed by smoking one whole item (stress is a 0..1 stat).
 HalfSmoked.stressRelief = 0.10
+
+-- Drags taken by "Smoke half". Never 1, or it duplicates "Take a drag".
+function HalfSmoked.half(left)
+    return math.ceil(left / 2)
+end
 
 function HalfSmoked.total(item)
     return HalfSmoked.puffs[item:getFullType()]
